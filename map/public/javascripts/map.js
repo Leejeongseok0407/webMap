@@ -29,8 +29,15 @@ function Pointing(lat, lng) {
       anchor: new naver.maps.Point(25, 25),
     },
   });
+  setTimeout(function () {
+    hideMarker(marker);
+  }, 100000);
 }
 
+function hideMarker(marker) {
+  if (!marker.setMap()) return;
+  marker.setMap(null);
+}
 
 function AddList(location, time) {
   const span = document.createElement("span");
@@ -40,6 +47,9 @@ function AddList(location, time) {
   span.style.color = textColorContainer[colorIndex++];
   log.appendChild(span);
 
+  setTimeout(function () {
+    log.removeChild(span);
+  }, 50000);
 
   // setTimeout(removeChild(span), 10000);
 }
