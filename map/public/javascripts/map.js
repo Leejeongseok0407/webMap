@@ -3,6 +3,7 @@ var log = document.getElementById("mapLog");
 var colorIndex = 0;
 const backGourndColorContainer = ["black", "white"];
 const textColorContainer = ["white", "black"];
+const removeTime = 10000;
 
 var mapOptions = {
   center: new naver.maps.LatLng(36.416744, 127.817338),
@@ -31,7 +32,7 @@ function Pointing(lat, lng) {
   });
   setTimeout(function () {
     hideMarker(marker);
-  }, 100000);
+  }, removeTime);
 }
 
 function hideMarker(marker) {
@@ -49,7 +50,7 @@ function AddList(location, time) {
 
   setTimeout(function () {
     log.removeChild(span);
-  }, 50000);
+  }, removeTime);
 
   // setTimeout(removeChild(span), 10000);
 }
@@ -59,7 +60,7 @@ function setime() {
   infoContent.innerHTML = `${times.getHours()}시 ${times.getMinutes()}분`;
   setTimeout(function () {
     setime();
-  }, 1000);
+  }, 10000);
 }
 
 setime();
