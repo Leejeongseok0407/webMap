@@ -1,5 +1,7 @@
+var infoContent = document.getElementById("infoContent");
+
 var mapOptions = {
-  center: new naver.maps.LatLng(36.34128315236848, 127.36064560845736),
+  center: new naver.maps.LatLng(36.016744, 127.817338),
   zoom: 8,
 };
 
@@ -35,3 +37,13 @@ function Pointing(lat, lng) {
     },
   });
 }
+
+function setime() {
+  var times = new Date();
+  infoContent.innerHTML = `${times.getHours()}시 ${times.getMinutes()}분`;
+  setTimeout(function () {
+    setime();
+  }, 1000);
+}
+
+setime();
