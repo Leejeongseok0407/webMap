@@ -3,7 +3,7 @@ var log = document.getElementById("mapLog");
 var colorIndex = 0;
 const backGourndColorContainer = ["black", "white"];
 const textColorContainer = ["white", "black"];
-const removeTime = 10000;
+const removeTime = 5000;
 
 var mapOptions = {
   center: new naver.maps.LatLng(36.416744, 127.817338),
@@ -60,7 +60,7 @@ function setime() {
   infoContent.innerHTML = `${times.getHours()}시 ${times.getMinutes()}분`;
   setTimeout(function () {
     setime();
-  }, 10000);
+  }, removeTime);
 }
 
 setime();
