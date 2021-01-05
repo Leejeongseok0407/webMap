@@ -7,6 +7,24 @@
     <title>와일드 보어즈</title>
     <link rel ="stylesheet" href="/stylesheets/style.css"/>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pmqeqdfisx"></script>
+    <script>
+      var live = {
+        init : function() {
+          var source = new EventSource("http://localhost:3000/events");
+          source.addEventListener("message", function(event){
+            var data = JSON.parse(event.data);
+            live.addItem(data);
+            console.log("sse start");
+          }, false);
+        },
+        addItem : function(data){
+          Pointing(data.longitude, data.latitude);
+        }  
+      };
+      document.addEventListener("DOMContentLoaded", function(){
+        live.init();
+      })
+    </script>
   </head>
 
   <body>
