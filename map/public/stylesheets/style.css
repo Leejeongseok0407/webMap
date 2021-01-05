@@ -64,16 +64,20 @@ body {
 }
 
 #GetAPIButton{
+  padding: 2px;
+  background: linear-gradient(#FF6064, #FF9867);
+  border-radius: 20px;
+  opacity: 0.5;
   position:absolute;
   top: 80vh;
   right: 22%;
-  padding: 10px;
   z-index: 10000;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  text-align: center;
+  /* padding: 10px;
+  border: 1px solid red;
+  border-radius: 50%;*/
+  text-align: center;  
 }
+
 #APItext{
   font-weight: bolder;
   font-size: 3vh;
@@ -82,4 +86,11 @@ body {
 span{
   margin: 5px;
   display: block;
+}
+.no-drag{
+  -ms-user-select: none; 
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }

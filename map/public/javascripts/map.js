@@ -1,5 +1,6 @@
 var infoContent = document.getElementById("infoContent");
 var log = document.getElementById("mapLog");
+var apiButton = document.getElementById("GetAPIButton");
 var colorIndex = 0;
 const backGourndColorContainer = ["black", "white"];
 const textColorContainer = ["white", "black"];
@@ -63,4 +64,9 @@ function setime() {
   }, removeTime);
 }
 
+function OpenAPIPage() {
+  console.log("dd");
+}
+
+apiButton.addEventListener("click", OpenAPIPage);
 setime();
