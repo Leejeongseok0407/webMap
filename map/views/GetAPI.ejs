@@ -1,31 +1,103 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-      <title>와일드 보어즈</title>
-      <link rel ="stylesheet" href="/stylesheets/GetAPI.css"/>
-      <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=pmqeqdfisx"></script>
-  </head>
-  <body>
-    <div class="nomalInfo">
-      <h3>기본 정보</h3>
+    <head>
+        <title>YB Wild Boars</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-    </div>
-    <h3>활용 정보</h3>
-    <div class="useInfo">
-        <div id="table">활용 목적</div>
-        <div id="table"> 
-          <input type='radio' name='context' id = 'input-context' checked/>웹 사이트 개발
-          <input type='radio' name='context' id = 'input-context' />앱 개발
-          <input type='radio' name='context' id = 'input-context' />기타
-          <input type='radio' name='context' id = 'input-context' />참고자료
-          <input type='radio' name='context' id = 'input-context' />연구(논문 등)
-          <br>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+                integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <div class="col-12">
+                <h2>API 사용 신청</h2>
+            </div>
+            <br>
+
+            <h5>기본정보</h5>
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <th style="width: 15%;" scope="row">서비스명</th>
+                    <td style="width: 35%;">야생동물 알람</td>
+                    <th style="width: 15%;" scope="row">데이터 포멧</th>
+                    <td style="width: 35%;">JSON</td>
+                  </tr>
+                  <tr>
+                    <th style="width: 15%;" scope="row">서비스 유형</th>
+                    <td style="width: 35%;">REST</td>
+                  </tr>
+                </tbody>
+            </table>
+
+            <br>
+
+            <h5>활용 정보</h5>
+            <div class="row">
+                <div class="col-2">
+                    <label>활용 목적</label>
+                </div>
+                <div class="col-8">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="develop" checked>
+                        <label class="form-check-label" for="inlineRadio1">앱, 웹 개발</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="investing">
+                        <label class="form-check-label" for="inlineRadio2">연구</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="else">
+                        <label class="form-check-label" for="inlineRadio3">기타</label>
+                      </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <label>콜백 URL</label>
+                </div>
+                <div class="col-10">
+                    <div class="input-group mb-3">
+                        <input type="url" class="form-control" placeholder="Callback URL" aria-label="URL">
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-1 offset-11">
+                    <button id="register" type="button" class="btn btn-primary" onclick="submitClicked()">신청</button>
+                </div>
+            </div>
         </div>
-      </div>
-      <input type='submit'>
-    <script src="/javascripts/GetAPI.js"></script>
-  </body>
+
+        <script>
+            function submitClicked(){
+              var data = {
+                url: $('#register').val(),
+                radioVal = $('input[name="inlineRadioOptions"]:checked').val()
+              };
+
+              $.ajax({
+                type: 'POST',
+                url: '/register',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+              }).done(function(){
+              alert('신청되었습니다.');
+              window.location.href= '/';
+              }).fail(function(error){
+              alert(JSON.stringify(error));
+              });
+            }
+        </script>
+    </body>
 </html>

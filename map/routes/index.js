@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var request = require('request');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,7 +19,11 @@ router.get('/getAPI', function(req, res, mext){
   res.render('getAPI',{ title: 'Express' })
 })
 
+router.post('/register', function(req, res, next){
+ substriber.push(res.body.url); 
+})
 
+let substriber = [];
 let clients = [];
 let locations = [];
 function eventsHandler(req, res, next) {

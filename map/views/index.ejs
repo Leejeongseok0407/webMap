@@ -19,6 +19,7 @@
         },
         addItem : function(data){
           Pointing(data.longitude, data.latitude);
+          AddList(data.location, data.Time);
         }  
       };
       document.addEventListener("DOMContentLoaded", function(){
@@ -33,9 +34,9 @@
       <div id="infoTitle">현재 시각</div>
       <div id="infoContent">00:00</div>
     </div>
-    <div id="GetAPIButton" class="no-drag">
+    <a href="/getAPI" id="GetAPIButton" class="no-drag">
       <div id="APItext" class="no-drag">API <br> 사용 신청</div>
-    </div>
+    </a>
     <div id="mapBox">
       <div id="map"></div>
       

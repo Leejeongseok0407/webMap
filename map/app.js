@@ -28,6 +28,7 @@ app.use('/users', usersRouter);
 app.use('/update', indexRouter);
 app.use('/events', indexRouter);
 app.use('/getAPI', indexRouter);
+app.use('/register', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
