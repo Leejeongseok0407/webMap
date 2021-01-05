@@ -6,15 +6,17 @@ body {
 
 #navbar{
   height: 5vh;
-  width: 100%;
-  padding: 10px;
-  background-color: #262626;
-  color: white;
+  width: 97.5%;
   font-weight: bolder;
   font-size: 25px;
-  display: flex;
+  display: flex; 
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  padding: 0 1rem;
+  color: white; 
+  background: black;
+  
 }
 
 #infoBox{
@@ -42,8 +44,25 @@ body {
   height: 24px;
   border-radius: 50%;
 }
-
+#mapBox{
+  display: flex;
+  flex-direction: row;
+} 
 #map{
-  width:100%;
-  height:95vh;
+  width:80%;
+  height:93vh;
+}
+#logTitle{
+    font-weight: bolder;
+  font-size: 3vh;
+  font
+}
+#mapLog{
+  font-size: 2vh;
+  text-align: center;
+  width:20%;
+}
+span{
+  margin: 5px;
+  display: block;
 }
