@@ -14,6 +14,10 @@ router.get('/events', function(req, res, next){
   eventsHandler(req, res, next);
 })
 
+router.get('/getAPI', function(req, res, mext){
+  res.render('getAPI',{ title: 'Express' })
+})
+
 
 let clients = [];
 let locations = [];
